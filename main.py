@@ -9,7 +9,7 @@ for i in range(26):
     keys[i] = x
 
 def loopMain():   
-    ask = input("To encrypt a message write E.")
+    ask = input("To encrypt a message write E. To check ur key write K.")
     if ask == "E":
         msg = input("Write your message: ")
         chars = list(msg)
@@ -18,14 +18,17 @@ def loopMain():
             cap = char
             if char in alphabet:
                 num = alphabet.index(char)
-                enc += keys[num]
+                enc += keys[num] + " "
             elif char in lowalphabet:
                 num = lowalphabet.index(char)
-                enc += keys[num]
+                enc += keys[num] + " "
             else:
-                enc += char
+                enc += char + " "
         
         print(enc)
+    elif ask == "K":
+        for i in range(26):
+            print(alphabet[i] + ": " + keys[i])
     else:
         loopMain()   
 
